@@ -37,10 +37,9 @@ EXPORT char * arecv(void * requester){
 			if (buffer == NULL)
 				return "out of memory" ; 
 	        bufsize = size ; 
-			buffer[size] = 0 ; 
-		} else {
-		memset(buffer, 0, bufsize + 1) ; 
-		}
+			
+		} 
+		buffer[size] = 0 ; 
 		memcpy (buffer, zmq_msg_data (&reply), size);
         zmq_msg_close (&reply);
 		return buffer ; 
@@ -50,4 +49,9 @@ EXPORT int aclose(void * context, void * requester){
 	zmq_close (requester);
     zmq_term (context);
     return 0;
+}
+
+EXPORT char * asendrecv(void * requester, char * message, unsigned int size){
+asend(requester, message, size) ; 
+return arecv(requester) ; 
 }
