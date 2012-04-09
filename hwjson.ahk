@@ -10,7 +10,7 @@ msg := ["hello",  A_Index]
 jmsg := json_to(msg) 			       				   
 hr := dllcall("ahk\asendrecv", "ptr", socket, "astr", jmsg, "uint", strlen(jmsg)
 , "cdecl astr")	      
-sleep, 500 	  
+sleep, 500  	  
 tooltip % hr
 }
 return			    
