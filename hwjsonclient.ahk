@@ -1,3 +1,4 @@
+#singleinstance off
 z := new zmq()
 context := z.zmq_init(1)
 tooltip, % "Connecting to hello world server…"   
@@ -28,9 +29,9 @@ msg := StrGet(msgp, size, "utf-8")
 hr := z.zmq_msg_close(&reply)
 hr := z.zmq_close(requester)
 hr := z.zmq_term(context)                                      
-msgbox, % "Received " msg " of size: " size                
+ ;  tooltip, % "Received " msg " of size: " size                
 jmsg := json_from(msg)
-msgbox % tostring(jmsg)
+tooltip % tostring(jmsg)
 return                                       
 !r::reload                                   
 !q::exitapp                                  
