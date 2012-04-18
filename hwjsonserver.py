@@ -10,10 +10,6 @@ while True:
     message = socket.recv_json()
     print "Received request: ", message
                          
-    #  Do some 'work'    
-#    time.sleep (1)        #   Do some 'work'
-                   
-    #  Send reply back to client
     socket.send_json(["World", message])
  
 

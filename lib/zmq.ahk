@@ -41,7 +41,9 @@ static ZMQ_QUEUE := 3
       
 
    __New(){
-libzmq := dllcall("LoadLibrary", "str", "libzmq.dll")
+EnvGet, path, PATH  			       			   
+EnvSet, PATH, % ";" A_ScriptDir 
+libzmq := dllcall("LoadLibrary", "str", A_ScriptDir "\libzmq.dll")
 if !libzmq{                                     
 throw "error loading " file
 } 
