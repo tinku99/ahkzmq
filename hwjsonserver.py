@@ -10,6 +10,6 @@ while True:
     message = socket.recv_json()
     print "Received request: ", message
                          
-    socket.send_json(["World", message])
+    socket.send_json({"count": 2, 1: "echo" , 2: " from server"})
  
  
